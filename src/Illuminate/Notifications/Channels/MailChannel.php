@@ -58,7 +58,7 @@ class MailChannel
         }
 
         if ($message instanceof Mailable) {
-            return $this->mailer->send($message);
+            return $this->mailer->mailer($message->mailer ?? null)->send($message);
         }
 
         $this->mailer->mailer($message->mailer ?? null)->send(
